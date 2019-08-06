@@ -1,6 +1,6 @@
 <template>
     <div>
-        App
+        Msite
     </div>
 </template>
 <script>
