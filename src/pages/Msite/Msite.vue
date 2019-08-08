@@ -1,7 +1,7 @@
 <template>
     <section class="msite">
         <!--首页头部-->
-        <Header title="xxx">
+        <Header title="address.name || '正在定位中...'">
           <span class="header_search" slot="left">
             <i class="iconfont icon-sousuo"></i>
           </span>
@@ -309,8 +309,18 @@
     
 </template>
 <script>
+    import chunk from 'lodash/chunk'
+    import Swiper from 'swiper'
+    import 'swiper/dist/css/swiper.css'
+    import {mapState} from 'vuex'
     export default {
-        
+      mounted () {
+        this.$store.dispatch('getAddress')
+        this.$store.dispatch('getShops')
+      },
+      computed: {
+        ...mapState(['adress'])
+      }
     }
 </script>
 <style lang="stylus" rel="stylesheet/stylus" scoped>
